@@ -387,6 +387,37 @@ public class DnfHelper extends JFrame implements ActionListener{
 			xuhuan = checkBox10_1.isSelected()
 		);
 		contentPane.add(checkBox10_1);
+		
+		// ¹ºÂòË¢Í¼µãÊý
+		class buyPoints implements Runnable {
+		    @Override
+		    public void run() {
+		    	DnfUtil.resetLocation();
+		    	for (int i = startNum; i <= endNum; ) {
+					DnfUtil.getFightPoint();
+					// »»½ÇÉ«
+					if(changeRole) {
+						if(xuhuan && i == endNum) {
+							i = 0;
+						}else {
+							++i;
+						}
+						DnfUtil.changeRole(i);
+					}
+				}
+		    	txtpnTipsPrint("Ë¢Í¼µã¹ºÂò½áÊø£¡");
+		    }
+		}
+		
+		JButton btnNewButton_3 = new JButton("Ë¢Í¼µã");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Thread buy = new Thread(new buyPoints());
+				buy.start();
+			}
+		});
+		btnNewButton_3.setBounds(150, 275, 91, 23);
+		contentPane.add(btnNewButton_3);
 	}
 	
 	public static void overTime(int roleNum){

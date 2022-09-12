@@ -49,10 +49,49 @@ public class DnfUtil {
 	public static void main(String[] args) { 
 		KeyBoardUtil.getRobot().delay(2000);
 		try {
-			dealEquipment();
+			getFightPoint();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * @since getFightPoint 获取刷图点
+	 * */
+	public static void getFightPoint() {
+		// 打开刷图点购买界面
+		KeyBoardUtil.mouseMove(645, 595);
+		KeyBoardUtil.mouseLeft();
+		KeyBoardUtil.getRobot().delay(200);
+		// 购买每周刷图点
+		KeyBoardUtil.mouseMove(180, 210);
+		KeyBoardUtil.mouseLeft();
+		KeyBoardUtil.getRobot().delay(200);
+		KeyBoardUtil.mouseLeft();
+		KeyBoardUtil.getRobot().delay(200);
+		// 切换到消耗品物品栏
+		KeyBoardUtil.mouseMove(575, 270);
+		KeyBoardUtil.mouseLeft();
+		KeyBoardUtil.getRobot().delay(2000);
+		// 使用刷图点药
+		BufferedImage bgImage = KeyBoardUtil.priteScreen(0, 0, 800, 600);
+		int [] yao = KeyBoardUtil.locateOnScreen(imgesMap.get("shuatudian.png"), bgImage);
+		KeyBoardUtil.mouseMove(yao[0] + 20, yao[1]);
+		KeyBoardUtil.mouseRight();
+		// 购买贵族机要普通
+		KeyBoardUtil.mouseMove(350, 210);
+		KeyBoardUtil.mouseLeft();
+		KeyBoardUtil.getRobot().delay(200);
+		KeyBoardUtil.mouseLeft();
+		KeyBoardUtil.getRobot().delay(200);
+		// 购买寂静城普通
+		KeyBoardUtil.mouseMove(180, 265);
+		KeyBoardUtil.mouseLeft();
+		KeyBoardUtil.getRobot().delay(200);
+		KeyBoardUtil.mouseLeft();
+		KeyBoardUtil.getRobot().delay(200);
+		// 关闭界面
+		KeyBoardUtil.preceKey(KeyEvent.VK_ESCAPE);
 	}
 	
 	/**
