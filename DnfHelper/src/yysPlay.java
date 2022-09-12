@@ -157,6 +157,7 @@ public class yysPlay extends JFrame {
 	 * */
 	private void txtpnTipsPrint(String str) {
 		txtpnTips.append(str + "\r\n");
+//		System.out.println(str);
 		txtpnTips.setCaretPosition(txtpnTips.getText().length());
 	}
 	
@@ -253,8 +254,11 @@ public class yysPlay extends JFrame {
 	    	resetLocation();
 	    	changeYuHun();
 			int num = 0;
+			int waitNum = 0;
+			boolean waitTime = false;
 	    	while(hunStart) {
-				num++;
+				++num;
+				waitNum = 0;
 				while(true) {
 					BufferedImage bgImage = KeyBoardUtil.priteScreen(800, 500, 300, 200);
 					int[] point1 = KeyBoardUtil.locateOnScreen(imgesMap.get("huntiaozhan.png"), bgImage);
@@ -262,32 +266,40 @@ public class yysPlay extends JFrame {
 					if(point1[0] != -1 || point2[0] != -1) {
 						KeyBoardUtil.mouseMove(1010, 670);
 						KeyBoardUtil.mouseLeft();
-						KeyBoardUtil.mouseLeft();
 						break;
 					}
+					if(waitNum > 10) {
+						break;
+					}
+					++waitNum;
 					KeyBoardUtil.getRobot().delay(1000);
 				}
+				waitTime = false;
+				waitNum = 0;
 				while(true) {
 					BufferedImage bgImage = KeyBoardUtil.priteScreen(90, 400, 600, 250);
 					int[] point1 = KeyBoardUtil.locateOnScreen(imgesMap.get("tongguanshijian.png"), bgImage);
-					if(point1[0] != -1) {
-						KeyBoardUtil.mouseMove(1010, 670);
+					if(!waitTime && point1[0] != -1) {
+						KeyBoardUtil.mouseMove(1010, 500);
 						KeyBoardUtil.mouseLeft();
-						KeyBoardUtil.mouseLeft();
+						waitTime = true;
 					}
 					int[] point2 = KeyBoardUtil.locateOnScreen(imgesMap.get("baoxiang.png"), bgImage);
 					if(point2[0] != -1) {
-						KeyBoardUtil.mouseMove(1010, 670);
-						KeyBoardUtil.mouseLeft();
+						KeyBoardUtil.mouseMove(1010, 500);
 						KeyBoardUtil.mouseLeft();
 						break;
 					}
+					if(waitNum > 30) {
+						break;
+					}
+					++waitNum;
 					KeyBoardUtil.getRobot().delay(1000);
 				}
 				txtpnTipsPrint("已刷御魂"+num+"次");
-				if(num >= 300) {
+				if(num % 5 == 0) {
+					KeyBoardUtil.getRobot().delay(2000);
 					cleanYuHun();
-					num = 0;
 				}
 			}
 	    	//208 630 通关时间
