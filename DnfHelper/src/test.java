@@ -1,44 +1,35 @@
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
-import DnfHelper.KeyBoardUtil;
+import javax.imageio.ImageIO;
+
+import DnfHelper.DnfUtil;
 
 public class test {
 
 	public static void main(String[] args) {
-//		KeyBoardUtil.getRobot().delay(3000);
-//		KeyBoardUtil.getRobot().mouseMove(240, 380);
-//		KeyBoardUtil.mouseLeft();
-//		KeyBoardUtil.getRobot().delay(1000);
-//		KeyBoardUtil.getRobot().mouseMove(435, 396);
-//		KeyBoardUtil.mouseLeft();
-//		KeyBoardUtil.getRobot().mouseMove(470, 360);
-//		KeyBoardUtil.mouseLeft();
-		System.out.println(System.getProperty("user.dir"));
-		File file = new File(System.getProperty("user.dir"));
-		if(!file.exists()) {
-			file.mkdirs();
+		try {
+			System.out.println("=="+(Double.valueOf("9").longValue()));
+			System.out.println("=="+Long.parseLong("9"));
+			System.out.println("=="+(Long.parseLong("9")==Double.valueOf("9").longValue()));
+//			File file = new File("D:/dnfImg/in");
+//			File list[] = file.listFiles();
+//			for (File imgFile : list) {
+//				BufferedImage img = DnfUtil.changeImgColor(ImageIO.read(imgFile));
+//				File outImgFile = new File("D:/dnfImg/out/"+imgFile.getName());
+//				ImageIO.write(img, "png", outImgFile);
+//			}
+			
+//			File imgFile = new File("D:/dnfImg/out/lengqueshijian.png");
+//			BufferedImage image = ImageIO.read(imgFile);
+//			File imgFile1 = new File("D:/dnfImg/out/0-0.png");
+//			BufferedImage image1 = ImageIO.read(imgFile1);
+//			int[] tt = ImageUtil.locateOnScreen(image, image1);
+//			System.out.println(tt[0]+"=="+tt[1]);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		File list[] = file.listFiles();
-		for(File ff:list) {
-			System.out.println(ff.getName());
-		}
-	}
-	
-	class MyRunnable implements Runnable {
-		
-		MyRunnable(){
-		}
-		
-	    @Override
-	    public void run() {
-	    	int i=0;
-	    	while(true) {
-	    		i++;
-	    		if(i>1000) {
-	    			i=0;
-	    		}
-	    	}
-	    }
 	}
 
 }

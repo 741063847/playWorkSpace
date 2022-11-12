@@ -22,7 +22,8 @@ import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef;
 import com.sun.jna.platform.win32.WinDef.HWND;
 
-import DnfHelper.KeyBoardUtil;
+import DnfHelper.RobotUtil;
+import util.ImageUtil;
 
 public class yysPlay extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -165,68 +166,68 @@ public class yysPlay extends JFrame {
 	 * ªª”˘ªÍ
 	 * */
 	private void changeYuHun() {
-		BufferedImage bgImage = KeyBoardUtil.priteScreen(130, 190, 300, 430);
+		BufferedImage bgImage = ImageUtil.priteScreen(130, 190, 300, 430);
 //		int[] hunshi = KeyBoardUtil.locateOnScreen(imgesMap.get("hunshi.png"), bgImage);
-		int[] huntu = KeyBoardUtil.locateOnScreen(imgesMap.get("huntu.png"), bgImage);
-		KeyBoardUtil.mouseMove(740, 655);
-		KeyBoardUtil.mouseLeft();
-		KeyBoardUtil.getRobot().delay(500);
-		KeyBoardUtil.mouseMove(330, 155);
-		KeyBoardUtil.mouseLeft();
-		KeyBoardUtil.getRobot().delay(500);
+		int[] huntu = ImageUtil.locateOnScreen(imgesMap.get("huntu.png"), bgImage);
+		RobotUtil.mouseMove(740, 655);
+		RobotUtil.mouseLeft();
+		RobotUtil.getRobot().delay(500);
+		RobotUtil.mouseMove(330, 155);
+		RobotUtil.mouseLeft();
+		RobotUtil.getRobot().delay(500);
 		if(huntu[0] != -1) {
-			KeyBoardUtil.mouseMove(865, 215);
-			KeyBoardUtil.mouseLeft();
+			RobotUtil.mouseMove(865, 215);
+			RobotUtil.mouseLeft();
 		}else {
-			KeyBoardUtil.mouseMove(865, 350);
-			KeyBoardUtil.mouseLeft();
+			RobotUtil.mouseMove(865, 350);
+			RobotUtil.mouseLeft();
 		}
-		KeyBoardUtil.getRobot().delay(500);
-		KeyBoardUtil.mouseMove(670, 450);
-		KeyBoardUtil.mouseLeft();
-		KeyBoardUtil.preceKey(KeyEvent.VK_ESCAPE);
+		RobotUtil.getRobot().delay(500);
+		RobotUtil.mouseMove(670, 450);
+		RobotUtil.mouseLeft();
+		RobotUtil.preceKey(KeyEvent.VK_ESCAPE);
 	}
 	
 	/**
 	 * «Â¿Ì”˘ªÍ
 	 * */
 	private void cleanYuHun() {
-		KeyBoardUtil.mouseMove(740, 655);
-		KeyBoardUtil.mouseLeft();
-		KeyBoardUtil.getRobot().delay(500);
-		KeyBoardUtil.mouseMove(500, 435);
-		KeyBoardUtil.mouseLeft();
-		KeyBoardUtil.getRobot().delay(500);
-		KeyBoardUtil.mouseMove(1050, 600);
-		KeyBoardUtil.mouseLeft();
-		KeyBoardUtil.getRobot().delay(500);
-		KeyBoardUtil.mouseMove(800, 560);
-		KeyBoardUtil.mouseLeft();
-		KeyBoardUtil.getRobot().delay(500);
-		KeyBoardUtil.mouseMove(850, 625);
-		KeyBoardUtil.mouseLeft();
-		KeyBoardUtil.getRobot().delay(500);
-		KeyBoardUtil.mouseMove(660, 450);
-		KeyBoardUtil.mouseLeft();
-		KeyBoardUtil.getRobot().delay(1000);
-		KeyBoardUtil.preceKey(KeyEvent.VK_ESCAPE);
-		KeyBoardUtil.mouseMove(1050, 255);
-		KeyBoardUtil.mouseLeft();
-		KeyBoardUtil.getRobot().delay(500);
+		RobotUtil.mouseMove(740, 655);
+		RobotUtil.mouseLeft();
+		RobotUtil.getRobot().delay(500);
+		RobotUtil.mouseMove(500, 435);
+		RobotUtil.mouseLeft();
+		RobotUtil.getRobot().delay(500);
+		RobotUtil.mouseMove(1050, 600);
+		RobotUtil.mouseLeft();
+		RobotUtil.getRobot().delay(500);
+		RobotUtil.mouseMove(800, 560);
+		RobotUtil.mouseLeft();
+		RobotUtil.getRobot().delay(500);
+		RobotUtil.mouseMove(850, 625);
+		RobotUtil.mouseLeft();
+		RobotUtil.getRobot().delay(500);
+		RobotUtil.mouseMove(660, 450);
+		RobotUtil.mouseLeft();
+		RobotUtil.getRobot().delay(1000);
+		RobotUtil.preceKey(KeyEvent.VK_ESCAPE);
+		RobotUtil.mouseMove(1050, 255);
+		RobotUtil.mouseLeft();
+		RobotUtil.getRobot().delay(500);
 		for(int i = 0;i<2;i++) {
-			KeyBoardUtil.mouseMove(120, 280);
-			KeyBoardUtil.getRobot().mousePress(KeyEvent.BUTTON1_MASK);
-			KeyBoardUtil.getRobot().delay(2000);
-			KeyBoardUtil.getRobot().mouseRelease(KeyEvent.BUTTON1_MASK);
-			KeyBoardUtil.getRobot().delay(500);
-			KeyBoardUtil.mouseMove(770, 650);
-			KeyBoardUtil.mouseLeft();
-			KeyBoardUtil.getRobot().delay(3000);
-			KeyBoardUtil.mouseLeft();
+			RobotUtil.mouseMove(120, 280);
+			RobotUtil.getRobot().mousePress(KeyEvent.BUTTON1_MASK);
+			RobotUtil.getRobot().delay(2000);
+			RobotUtil.getRobot().mouseRelease(KeyEvent.BUTTON1_MASK);
+			RobotUtil.getRobot().delay(500);
+			RobotUtil.mouseMove(770, 650);
+			RobotUtil.mouseLeft();
+			RobotUtil.getRobot().delay(3000);
+			RobotUtil.mouseLeft();
 		}
-		KeyBoardUtil.preceKey(KeyEvent.VK_ESCAPE);
-		KeyBoardUtil.getRobot().delay(500);
-		KeyBoardUtil.preceKey(KeyEvent.VK_ESCAPE);
+		RobotUtil.preceKey(KeyEvent.VK_ESCAPE);
+		RobotUtil.getRobot().delay(500);
+		RobotUtil.preceKey(KeyEvent.VK_ESCAPE);
 	}
 
 	/**
@@ -260,45 +261,45 @@ public class yysPlay extends JFrame {
 				++num;
 				waitNum = 0;
 				while(true) {
-					BufferedImage bgImage = KeyBoardUtil.priteScreen(800, 500, 300, 200);
-					int[] point1 = KeyBoardUtil.locateOnScreen(imgesMap.get("huntiaozhan.png"), bgImage);
-					int[] point2 = KeyBoardUtil.locateOnScreen(imgesMap.get("hunzudui.png"), bgImage);
+					BufferedImage bgImage = ImageUtil.priteScreen(800, 500, 300, 200);
+					int[] point1 = ImageUtil.locateOnScreen(imgesMap.get("huntiaozhan.png"), bgImage);
+					int[] point2 = ImageUtil.locateOnScreen(imgesMap.get("hunzudui.png"), bgImage);
 					if(point1[0] != -1 || point2[0] != -1) {
-						KeyBoardUtil.mouseMove(1010, 670);
-						KeyBoardUtil.mouseLeft();
+						RobotUtil.mouseMove(1010, 670);
+						RobotUtil.mouseLeft();
 						break;
 					}
 					if(waitNum > 10) {
 						break;
 					}
 					++waitNum;
-					KeyBoardUtil.getRobot().delay(1000);
+					RobotUtil.getRobot().delay(1000);
 				}
 				waitTime = false;
 				waitNum = 0;
 				while(true) {
-					BufferedImage bgImage = KeyBoardUtil.priteScreen(90, 400, 600, 250);
-					int[] point1 = KeyBoardUtil.locateOnScreen(imgesMap.get("tongguanshijian.png"), bgImage);
+					BufferedImage bgImage = ImageUtil.priteScreen(90, 400, 600, 250);
+					int[] point1 = ImageUtil.locateOnScreen(imgesMap.get("tongguanshijian.png"), bgImage);
 					if(!waitTime && point1[0] != -1) {
-						KeyBoardUtil.mouseMove(1010, 500);
-						KeyBoardUtil.mouseLeft();
+						RobotUtil.mouseMove(1010, 500);
+						RobotUtil.mouseLeft();
 						waitTime = true;
 					}
-					int[] point2 = KeyBoardUtil.locateOnScreen(imgesMap.get("baoxiang.png"), bgImage);
+					int[] point2 = ImageUtil.locateOnScreen(imgesMap.get("baoxiang.png"), bgImage);
 					if(point2[0] != -1) {
-						KeyBoardUtil.mouseMove(1010, 500);
-						KeyBoardUtil.mouseLeft();
+						RobotUtil.mouseMove(1010, 500);
+						RobotUtil.mouseLeft();
 						break;
 					}
 					if(waitNum > 30) {
 						break;
 					}
 					++waitNum;
-					KeyBoardUtil.getRobot().delay(1000);
+					RobotUtil.getRobot().delay(1000);
 				}
 				txtpnTipsPrint("“—À¢”˘ªÍ"+num+"¥Œ");
-				if(num % 5 == 0) {
-					KeyBoardUtil.getRobot().delay(2000);
+				if(num % 100 == 0) {
+					RobotUtil.getRobot().delay(2000);
 					cleanYuHun();
 				}
 			}
@@ -313,23 +314,23 @@ public class yysPlay extends JFrame {
 	class ClickFun implements Runnable {
 	    @Override
 	    public void run() {
-	    	KeyBoardUtil.getRobot().delay(2000);
+	    	RobotUtil.getRobot().delay(2000);
 	    	int num = 0;
 			while(clickStart) {
-				BufferedImage bgImage = KeyBoardUtil.priteScreen(90, 400, 600, 250);
-				KeyBoardUtil.mouseLeft();
-				int[] point2 = KeyBoardUtil.locateOnScreen(imgesMap.get("baoxiang.png"), bgImage);
+				BufferedImage bgImage = ImageUtil.priteScreen(90, 400, 600, 250);
+				RobotUtil.mouseLeft();
+				int[] point2 = ImageUtil.locateOnScreen(imgesMap.get("baoxiang.png"), bgImage);
 				if(point2[0] != -1) {
 					num++;
 					txtpnTipsPrint("“—À¢”˘ªÍ"+num+"¥Œ");
 					if(num >= 300) {
-						KeyBoardUtil.getRobot().delay(2000);
+						RobotUtil.getRobot().delay(2000);
 						cleanYuHun();
 						num = 0;
-						KeyBoardUtil.mouseMove(1010, 670);
+						RobotUtil.mouseMove(1010, 670);
 					}
 				}
-				KeyBoardUtil.getRobot().delay(Integer.parseInt(textField.getText()));
+				RobotUtil.getRobot().delay(Integer.parseInt(textField.getText()));
 			}
 	    }
 	}
